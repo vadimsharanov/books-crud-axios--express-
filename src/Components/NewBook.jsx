@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 
-function NewBook() {
+function NewBook({update}) {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [category, setCategory] = useState("");
@@ -40,7 +40,7 @@ function NewBook() {
     axios
       .post("http://localhost:4000/books/", { data })
       .then(function (response) {
-        // setPostuKeitimoLaikas(Date.now());
+        update("hello")
       })
       .catch(function (error) {
         console.log(error);

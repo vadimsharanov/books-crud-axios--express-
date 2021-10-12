@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function EditWindow({oneBook}) {
   const [title, setTitle] = useState("");
@@ -7,7 +7,14 @@ function EditWindow({oneBook}) {
   const [category, setCategory] = useState("");
   const [pages, setPages] = useState("");
 
-    console.log(oneBook);
+  useEffect(() => {
+    setTitle(oneBook.title)
+    setAuthor(oneBook.author)
+    setCategory(oneBook.category)
+    setPages(oneBook.pages)
+    
+
+}, [oneBook.id])
     
   const inputController = (e, value) => {
     switch (value) {
@@ -56,8 +63,8 @@ function EditWindow({oneBook}) {
       <span>Title</span>
       <input
         type="text"
-        value={title}
         onChange={(e) => inputController(e, "title")}
+        value={title}
       />
       <span>Author</span>
       <input

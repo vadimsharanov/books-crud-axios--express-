@@ -10,6 +10,7 @@ function Books() {
   useEffect(() => {
     axios.get("http://localhost:4000/books").then((res) => {
       setBooks(res.data);
+      setPostuKeitimoLaikas(Date.now())
     });
   }, [postuKeitimoLaikas]);
 
@@ -18,28 +19,22 @@ function Books() {
       setPostuKeitimoLaikas(Date.now());
     });
   };
-  const editBook = (id) => {
-    console.log(id);
-    // axios
-    //   .put("http://localhost:4000/books/" + id, { data })
-    //   .then(function (response) {
-    //     // setPostuKeitimoLaikas(Date.now());
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
+
+  const update = (time) => {
+    setPostuKeitimoLaikas(time);
   };
+
   const getData = (data) => {
-      console.log(data);
-    setEdit(data)
-  }
- 
+    console.log(data);
+    setEdit(data);
+  };
 
   return (
-      <div className="book-container">
-        <EditWindow oneBook={edit} ></EditWindow>      
+    <div className="book-container">
+      <EditWindow update={update} oneBook={edit}></EditWindow>
       {books.map((item) => (
         <Book
+          update={update}
           data={item}
           key={item.id}
           index={books.indexOf(item)}
