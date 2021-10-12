@@ -9,7 +9,6 @@ function App() {
   return (
     <>
       <Header></Header>
-      <NewBook></NewBook>
       <div className="main-container">
         <Books></Books>
       </div>

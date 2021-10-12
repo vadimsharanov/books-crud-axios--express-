@@ -8,6 +8,7 @@ function NewBook({update}) {
   const [category, setCategory] = useState("");
   const [pages, setPages] = useState("");
 
+
   const inputController = (e, value) => {
     switch (value) {
       case "title":
@@ -40,7 +41,7 @@ function NewBook({update}) {
     axios
       .post("http://localhost:4000/books/", { data })
       .then(function (response) {
-        update("hello")
+        update(Date.now())
       })
       .catch(function (error) {
         console.log(error);
