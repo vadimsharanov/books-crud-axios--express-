@@ -1,16 +1,18 @@
-import Books from "./Books"
-import Header from "./Header"
+import Books from "./Books";
+import EditWindow from "./EditWindow";
+import Header from "./Header";
+import NewBook from "./NewBook";
 
 function App() {
-    
-    return (
+  return (
     <>
-        <Header></Header>
-        <div className="main-container">
-            <Books></Books>
-        </div>
+      <Header></Header>
+      <NewBook></NewBook>
+      <div className="main-container">
+        <Books></Books>
+      </div>
     </>
-    )
+  );
 }
 
-export default App
+export default App;
